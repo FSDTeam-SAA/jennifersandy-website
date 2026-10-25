@@ -1,4 +1,5 @@
 import { TranslatedText } from '@/components/shared/translated-text'
+import Link from 'next/link';
 
 export function ContactCtaSection() {
   return (
@@ -17,12 +18,14 @@ export function ContactCtaSection() {
             cacheKey="cta:body"
           />
         </p>
+       <Link href="/contact" className="relative z-10">
         <button
           type="button"
           className="relative z-10 mt-5 rounded-md bg-[#1672E6] px-6 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0f63ce] hover:shadow-lg active:translate-y-px active:scale-[0.98] sm:px-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1672E6]/30"
         >
           <TranslatedText text="Contact Us" cacheKey="cta:button" />
         </button>
+       </Link>
       </div>
     </section>
   );

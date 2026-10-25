@@ -6,35 +6,35 @@ const teamMembers = [
     role: 'Management',
     name: 'Daniel van der Vee',
     phone: '0211-6868198',
-    email: 'dvdv@0211wohnen.de',
+    email: 'vdv@0211wohnen.de',
   },
   {
     role: 'Finance and Controlling',
-    name: 'Pascal Kusische',
-    phone: '0211-6868198',
-    email: 'info@0211wohnen.de',
-  },
-  {
-    role: 'Accounting',
-    name: 'Nina van der Vee',
-    phone: '0211-6868198',
-    email: 'nvd@0211wohnen.de',
-  },
-  {
-    role: 'Marketing and Lettings',
-    name: 'Sylvia van der Vee',
-    phone: '0211-6868198',
-    email: 'svd@0211wohnen.de',
-  },
-  {
-    role: 'Letting and Controlling',
     name: 'Alexandra Schmidt',
     phone: '0211-6868198',
     email: 'as@0211wohnen.de',
   },
   {
+    role: 'Accounting',
+    name: 'Philipp Leisten',
+    phone: '0211-6868198',
+    email: 'pl@0211wohnen.de',
+  },
+  {
+    role: 'Marketing and Lettings',
+    name: 'Sylvia van der Vee',
+    phone: '0211-6868198',
+    email: 'svdv@0211wohnen.de',
+  },
+  {
+    role: 'Letting and Controlling',
+    name: 'Melanie Falcon',
+    phone: '0211-6868198',
+    email: 'mf@0211wohnen.de',
+  },
+  {
     role: 'Property Management',
-    name: 'Keavin Kosiorek',
+    name: 'Wojciech Kosiorek',
     phone: '0211-6868198',
     email: 'hausmeister@0211wohnen.de',
   },
@@ -239,7 +239,7 @@ export function AboutSections() {
               <h3 className="mt-1 font-serif text-[19px] leading-[130%] text-slate-800">
                 {member.name}
               </h3>
-              <p className="mt-2 text-[12px] text-slate-500">{member.phone}</p>
+              {/* <p className="mt-2 text-[12px] text-slate-500">{member.phone}</p> */}
               <p className="text-[12px] text-[#1672E6]">{member.email}</p>
             </article>
           ))}
