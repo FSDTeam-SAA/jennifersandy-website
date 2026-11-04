@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700&display=swap');
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 @import 'leaflet/dist/leaflet.css';
@@ -66,20 +67,18 @@
 
 @layer base {
   :root {
-    --font-sans:
-      ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      sans-serif;
-    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-sans: 'Raleway', Arial, sans-serif;
+    --font-serif: 'Manrope', Arial, sans-serif;
     --font-poppins: 'Poppins', 'Segoe UI', sans-serif;
-    --font-heading: var(--font-sans);
+    --font-heading: 'Manrope', Arial, sans-serif;
     --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    --foreground: #6f7470;
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.55 0.23 264);
-    --primary-foreground: oklch(0.985 0 0);
+    --primary: #d1c9be;
+    --primary-foreground: #262626;
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
@@ -147,4 +146,19 @@
   html {
     @apply font-sans;
   }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: #262626; }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 2px solid #867968; outline-offset: 3px; }
 }
+
+@layer components {
+  .brand-button { display: inline-flex; align-items: center; justify-content: center; border-radius: 0.5rem; padding: 0.8rem 1.4rem; background: #d1c9be; color: #262626; font-family: var(--font-heading); font-weight: 600; transition: background-color 150ms; }
+  .brand-button:hover { background: #c4b9aa; }
+}
+
+/* Existing account/form components share the reference site's neutral palette. */
+[class*="text-[#1672E6]"], [class*="text-[#0f63ce]"], [class*="text-[#5AA2EC]"], [class*="text-[#6EA8E8]"], [class*="text-primary"] { color: #3a3a3a; }
+[class*="bg-[#1672E6]"], [class*="bg-[#0f63ce]"], [class*="bg-[#5AA2EC]"], [class*="bg-[#3f92e7]"], [class*="bg-primary"] { background-color: #d1c9be; color: #262626; }
+[class*="border-[#1672E6]"], [class*="border-[#c5ddf7]"] { border-color: #b5aa9a; }
+[class*="ring-[#1672E6]"], [class*="ring-primary"] { --tw-ring-color: #867968; }
+[class*="bg-[#EAF3FF]"], [class*="bg-[#E6F2FD]"], [class*="bg-[#F3F3F3]"], [class*="bg-[#F9FBFC]"] { background-color: #fff; }

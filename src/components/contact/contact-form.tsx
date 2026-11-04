@@ -194,22 +194,22 @@ export function ContactInfo() {
   const contactDetails = [
     {
       icon: <Mail className="w-5 h-5 text-[#1672E6]" />,
-      value: 'contact@0211wohnen.de',
-      href: 'mailto:contact@0211wohnen.de',
+      value: 'info@0211wohnen.de',
+      href: 'mailto:info@0211wohnen.de',
     },
     {
       icon: <Phone className="w-5 h-5 text-[#1672E6]" />,
-      value: '+49 211 12345678',
-      href: 'tel:+4921112345678',
+      value: '+49 211 6686198',
+      href: 'tel:+492116686198',
     },
     {
       icon: <MessageSquare className="w-5 h-5 text-[#1672E6]" />,
-      value: 'Write to us on WhatsApp',
-      href: 'https://wa.me/4921112345678',
+      value: 'Montag bis Freitag nach Vereinbarung',
+      href: null,
     },
     {
       icon: <MapPin className="w-5 h-5 text-[#1672E6]" />,
-      value: '0211wohnen, Medienhafen, Düsseldorf',
+      value: 'Neckarstr. 27, 40219 Düsseldorf',
       href: null,
     },
   ]

@@ -10,6 +10,8 @@ import { BlogSharedBottom } from '@/components/blog/blog-shared-bottom'
 import { stripHtml } from '@/lib/utils'
 import { Skeleton } from '@/components/ui/skeleton'
 import { TranslatedText } from '@/components/shared/translated-text'
+import { useEffect, useState } from 'react'
+import { sanitizeBlogHtml } from '@/lib/blog-html'
 
 export function BlogDetailsPageContent() {
   const params = useParams()
@@ -31,6 +33,11 @@ export function BlogDetailsPageContent() {
   const blog = data?.data
   const allBlogs = allBlogsData?.data || []
   const relatedArticles = allBlogs.filter(b => b.slug !== slug).slice(0, 3)
+  const content = blog?.content || ''
+  const [safeContent, setSafeContent] = useState('')
+  useEffect(() => {
+    setSafeContent(sanitizeBlogHtml(content))
+  }, [content])
 
   if (isLoading) {
     return (
@@ -129,7 +136,7 @@ export function BlogDetailsPageContent() {
             {blog.content && (
               <div
                 className="space-y-4 section-desc text-slate-600"
-                dangerouslySetInnerHTML={{ __html: blog.content }}
+                dangerouslySetInnerHTML={{ __html: safeContent }}
               />
             )}
           </article>

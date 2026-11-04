@@ -8,20 +8,19 @@ import { useEffect, useState } from 'react'
 import { useSession, getSession } from 'next-auth/react'
 import { PROFILE_UPDATED_EVENT } from '@/components/shared/profile-update-broadcast'
 import { LanguageSwitcher } from '@/components/shared/language-switcher'
-import { useTranslatedText } from '@/hooks/use-translated-text'
 
 const navLinks = [
-  { label: 'Home', href: '/' },
+  { label: 'Startseite', href: '/' },
   { label: 'Apartments', href: '/apartments' },
-  { label: 'Landlords', href: '/landlords' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Blogs', href: '/blogs' },
-  { label: 'FAQs', href: '/faqs' },
-  { label: 'Contact Us', href: '/contact' },
+  { label: 'Vermieter', href: '/landlords' },
+  { label: 'Über uns', href: '/about' },
+  { label: 'Magazin', href: '/blogs' },
+  { label: 'Fragen', href: '/faqs' },
+  { label: 'Kontakt', href: '/contact' },
 ]
 
 function HeaderText({ text }: { text: string }) {
-  return <>{useTranslatedText(text, 'en', { cacheKey: `ui:${text}` })}</>
+  return <>{text}</>
 }
 
 export function SiteHeader() {
@@ -42,12 +41,8 @@ export function SiteHeader() {
     return () => window.removeEventListener(PROFILE_UPDATED_EVENT, handler)
   }, [])
 
-  const signInLabel = useTranslatedText('Sign in', 'en', {
-    cacheKey: 'ui:Sign in',
-  })
-  const accountLabel = useTranslatedText('Account', 'en', {
-    cacheKey: 'ui:Account',
-  })
+  const signInLabel = 'Anmelden'
+  const accountLabel = 'Mein Konto'
 
   const renderNavLink = (link: (typeof navLinks)[number], mobile = false) => {
     const isActive =
@@ -58,7 +53,7 @@ export function SiteHeader() {
     const baseClassName = mobile
       ? `block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
           isActive
-            ? 'bg-[#1672E6]/10 text-[#1672E6]'
+            ? 'bg-[#f0ede8] text-[#262626]'
             : 'text-slate-700 hover:bg-slate-100 hover:text-slate-950'
         }`
       : `group relative border-b-2 pb-1 text-center align-middle transition-all duration-200 ${

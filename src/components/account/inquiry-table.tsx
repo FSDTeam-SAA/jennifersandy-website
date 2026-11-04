@@ -25,6 +25,7 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination'
 import { Skeleton } from '@/components/ui/skeleton'
+import Link from 'next/link'
 
 interface InquiryTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -80,7 +81,7 @@ export function InquiryTable<TData, TValue>({
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
         <p className="text-lg font-semibold text-[#343A40]">
-          Unable to load inquiries
+          Anfragen konnten nicht geladen werden
         </p>
         <p className="mt-2 text-sm text-[#68706A]">
           {errorMessage || 'Something went wrong. Please try again.'}
@@ -90,7 +91,7 @@ export function InquiryTable<TData, TValue>({
             onClick={onRetry}
             className="mt-4 rounded-md bg-[#2563EB] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1d4ed8]"
           >
-            Retry
+            Erneut versuchen
           </button>
         )}
       </div>
@@ -102,11 +103,12 @@ export function InquiryTable<TData, TValue>({
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
         <p className="text-lg font-semibold text-[#343A40]">
-          No inquiries found
+          Noch keine Anfragen
         </p>
         <p className="mt-2 text-sm text-[#68706A]">
-          There are no inquiries to display at this time.
+          Senden Sie direkt bei einer Wohnung eine Anfrage. Sie erscheint anschließend automatisch hier.
         </p>
+        <Link href="/apartments" className="mt-5 rounded-md bg-[#d1c9be] px-5 py-2.5 text-sm font-semibold text-[#262626] hover:bg-[#c4b9aa]">Wohnungen ansehen</Link>
       </div>
     )
   }

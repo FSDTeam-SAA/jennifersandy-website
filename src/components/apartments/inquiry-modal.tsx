@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { toast } from 'sonner'
 import { X } from 'lucide-react'
 import { TranslatedText } from '@/components/shared/translated-text'
+import { useSession } from 'next-auth/react'
 
 interface InquiryFormData {
   firstName: string
@@ -47,6 +48,8 @@ export function InquiryModal({
   onOfficeId,
   apartmentTitle,
 }: InquiryModalProps) {
+  const { data: session } = useSession()
+  const accessToken = (session?.user as { accessToken?: string } | undefined)?.accessToken
   const [form, setForm] = useState<InquiryFormData>({
     firstName: '',
     lastName: '',
@@ -86,7 +89,10 @@ export function InquiryModal({
       // POST /api/inquiry — replace endpoint if different
       const res = await fetch(`${API_BASE_URL}/inquiry`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+        },
         body: JSON.stringify({
           onOfficeId,
           firstName: form.firstName.trim(),

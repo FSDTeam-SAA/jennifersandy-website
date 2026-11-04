@@ -4,6 +4,7 @@ import { ApartmentDetailContent } from '@/components/apartments/apartment-detail
 import {
   fetchApartmentBySlugOrId,
   fetchSimilarApartments,
+  formatApartmentPrice,
 } from '@/lib/apartments-api'
 
 interface Props {
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const apt = await fetchApartmentBySlugOrId(params.id)
     return {
       title: `${apt.title} | 0211wohnen`,
-      description: `${apt.size} m² • ${apt.rooms} rooms • ${apt.district} • from ${apt.price} € / month`,
+      description: `${apt.size} m² • ${apt.rooms} Zimmer • ${apt.district} • ${formatApartmentPrice(apt)} • ${apt.priceLabel}`,
     }
   } catch {
     return { title: 'Apartment Not Found | 0211wohnen' }
