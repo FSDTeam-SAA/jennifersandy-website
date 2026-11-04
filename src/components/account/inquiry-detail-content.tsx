@@ -22,7 +22,7 @@ export function InquiryDetailContent() {
     enabled: !!token,
   })
 
-  const allInquiries: InquiryRecord[] = data?.data?.data || []
+  const allInquiries: InquiryRecord[] = data?.data || []
   const inquiry = allInquiries.find((i: InquiryRecord) => i._id === inquiryId)
 
   const onOfficeData =
@@ -60,13 +60,13 @@ export function InquiryDetailContent() {
     return (
       <div className="flex flex-col items-center justify-center py-20">
         <p className="text-lg font-semibold text-[#343A40]">
-          Inquiry not found
+          Anfrage nicht gefunden
         </p>
         <Link
           href="/account/inquiries"
           className="mt-4 text-sm font-medium text-[#2563EB] hover:underline"
         >
-          Back to inquiries
+          Zurück zu den Anfragen
         </Link>
       </div>
     )
@@ -79,7 +79,7 @@ export function InquiryDetailContent() {
         className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-[#2563EB] hover:underline"
       >
         <ArrowLeft className="h-4 w-4" />
-        Back to Inquiries
+        Zurück zu den Anfragen
       </Link>
 
       <div className="mb-6 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
@@ -97,23 +97,23 @@ export function InquiryDetailContent() {
           <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-4">
             <div className="rounded-lg bg-gray-50 p-4">
               <p className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                Area
+                Wohnfläche
               </p>
               <p className="mt-1 text-sm font-medium text-gray-900">
-                {(onOfficeData?.flaeche as string) || 'N/A'} m&sup2;
+                {(onOfficeData?.wohnflaeche as string) || 'N/A'} m&sup2;
               </p>
             </div>
             <div className="rounded-lg bg-gray-50 p-4">
               <p className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                Rooms
+                Zimmer
               </p>
               <p className="mt-1 text-sm font-medium text-gray-900">
-                {(onOfficeData?.anzahlZimmer as string) || 'N/A'}
+                {(onOfficeData?.anzahl_zimmer as string) || 'N/A'}
               </p>
             </div>
             <div className="rounded-lg bg-gray-50 p-4">
               <p className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                Status
+                Bearbeitungsstatus
               </p>
               <p className="mt-1 text-sm font-medium text-gray-900">
                 {inquiry.status || 'Pending'}
@@ -132,11 +132,18 @@ export function InquiryDetailContent() {
           {inquiry.message && (
             <div className="mt-6">
               <h3 className="text-base font-semibold text-[#343A40]">
-                Message
+                Ihre Nachricht
               </h3>
               <p className="mt-2 text-base leading-relaxed text-[#68706A]">
                 {inquiry.message}
               </p>
+            </div>
+          )}
+          {inquiry.responseMessage && (
+            <div className="mt-6 rounded-xl border border-[#e3ded6] bg-[#f5f3ef] p-5">
+              <h3 className="text-base font-semibold text-[#262626]">Antwort von 0211wohnen</h3>
+              <p className="mt-2 whitespace-pre-wrap text-base leading-relaxed text-[#6f7470]">{inquiry.responseMessage}</p>
+              {inquiry.respondedAt && <p className="mt-3 text-xs text-[#8b8175]">Antwort gesendet: {new Date(inquiry.respondedAt).toLocaleDateString('de-DE')}</p>}
             </div>
           )}
         </div>

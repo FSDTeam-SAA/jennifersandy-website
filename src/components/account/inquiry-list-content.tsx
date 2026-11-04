@@ -43,8 +43,8 @@ export function InquiryListContent() {
     enabled: !!token,
   })
 
-  const inquiries = data?.data?.data || []
-  const meta = data?.data?.meta
+  const inquiries = data?.data || []
+  const meta = data?.meta
   const totalPages = meta?.total ? Math.ceil(meta.total / 8) : 1
   const totalItems = meta?.total || 0
 
@@ -98,6 +98,17 @@ export function InquiryListContent() {
             cacheKey="inquiries:subtitle"
           />
         </p>
+      </div>
+
+      <div className="mb-6 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-[#e3ded6] bg-white p-5 shadow-sm">
+          <p className="text-sm text-[#6f7470]">Meine Anfragen insgesamt</p>
+          <p className="mt-2 text-3xl font-semibold text-[#262626]">{totalItems}</p>
+        </div>
+        <div className="rounded-xl border border-[#e3ded6] bg-[#f5f3ef] p-5">
+          <p className="font-semibold text-[#262626]">Persönliche Betreuung</p>
+          <p className="mt-2 text-sm leading-6 text-[#6f7470]">Hier sehen Sie Ihre gesendeten Wohnungsanfragen und den aktuellen Bearbeitungsstatus.</p>
+        </div>
       </div>
 
       <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">

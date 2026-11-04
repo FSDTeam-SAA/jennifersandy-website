@@ -33,7 +33,7 @@ export const inquiryColumns = (
     accessorKey: 'apartmentName',
     header: () => (
       <span className="text-sm font-normal leading-[150%] text-[#343A40]">
-        Apartment Name
+        Wohnung
       </span>
     ),
     cell: ({ row }) => {
@@ -54,7 +54,7 @@ export const inquiryColumns = (
     accessorKey: 'createdAt',
     header: () => (
       <span className="text-sm font-normal leading-[150%] text-[#343A40]">
-        Date
+        Datum
       </span>
     ),
     cell: ({ row }) => {
@@ -98,7 +98,7 @@ export const inquiryColumns = (
     id: 'details',
     header: () => (
       <span className="text-sm font-normal leading-[150%] text-[#343A40]">
-        Inquiry Details
+        Details
       </span>
     ),
     cell: ({ row }) => {
@@ -108,7 +108,7 @@ export const inquiryColumns = (
           href={`/account/inquiries/${inquiry._id}`}
           className="text-base font-medium leading-[150%] text-[#2563EB] hover:underline"
         >
-          See Details
+          Details ansehen
         </Link>
       )
     },
@@ -117,7 +117,7 @@ export const inquiryColumns = (
     id: 'actions',
     header: () => (
       <span className="text-sm font-normal leading-[150%] text-[#343A40]">
-        Action
+        Aktion
       </span>
     ),
     cell: ({ row }) => {

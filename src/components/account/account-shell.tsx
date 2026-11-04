@@ -7,6 +7,7 @@ import { MessageSquare, Settings, Home } from 'lucide-react'
 import { LogoutModal } from '@/components/shared/logout-modal'
 import { cn } from '@/lib/utils'
 import { TranslatedText } from '@/components/shared/translated-text'
+import { LanguageSwitcher } from '@/components/shared/language-switcher'
 
 const navItems = [
   {
@@ -38,18 +39,19 @@ export function AccountShell({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen flex-col bg-gray-50 md:flex-row">
       {/* Sidebar */}
-      <aside className="flex w-[220px] min-w-[220px] flex-col border-r border-gray-200 bg-white">
+      <aside className="flex w-full flex-col border-b border-gray-200 bg-white md:min-h-screen md:w-[220px] md:min-w-[220px] md:border-b-0 md:border-r">
         {/* Logo */}
-        <div className="px-6 pb-10 pt-8">
+        <div className="flex items-center justify-between px-6 py-6 md:block md:pb-10 md:pt-8">
           <Link href="/">
             <span className="text-2xl font-bold text-primary">0211wohnen</span>
           </Link>
+          <div className="md:mt-5"><LanguageSwitcher /></div>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 space-y-1 px-4">
+        <nav className="flex flex-1 gap-1 overflow-x-auto px-4 pb-3 md:block md:space-y-1 md:pb-0">
           {navItems.map(item => {
             const active = isActive(item.href)
             return (
@@ -74,13 +76,13 @@ export function AccountShell({ children }: { children: ReactNode }) {
         </nav>
 
         {/* Logout */}
-        <div className="px-4 pb-8 pt-4">
+        <div className="hidden px-4 pb-8 pt-4 md:block">
           <LogoutModal />
         </div>
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 p-8">{children}</main>
+      <main className="flex-1 p-4 sm:p-6 lg:p-8">{children}</main>
     </div>
   )
 }

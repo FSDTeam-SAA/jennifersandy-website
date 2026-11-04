@@ -69,6 +69,8 @@ export interface InquiryRecord {
   phoneNumber: string
   message: string
   status?: string
+  responseMessage?: string
+  respondedAt?: string
   user?: InquiryUserRef | string
   onOfficeId?: InquiryOfficeRef | string
   createdAt?: string

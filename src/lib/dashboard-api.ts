@@ -3,7 +3,7 @@ import type {
   ChangePasswordPayload,
   DashboardChartData,
   DashboardOverviewData,
-  InquiryListResponse,
+  InquiryRecord,
   UpdateProfilePayload,
   UserProfile,
 } from "@/types/dashboard";
@@ -95,7 +95,7 @@ export async function fetchRecentInquiries(token: string, params?: Record<string
 
   const query = searchParams.toString();
 
-  return apiRequest<InquiryListResponse>(`/inquiry${query ? `?${query}` : ""}`, {
+  return apiRequest<InquiryRecord[]>(`/inquiry${query ? `?${query}` : ""}`, {
     token,
   });
 }
