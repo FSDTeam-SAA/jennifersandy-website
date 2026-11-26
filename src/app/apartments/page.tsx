@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { ApartmentsPageContent } from '@/components/apartments/apartments-page-content'
 
 export const metadata: Metadata = {
-  title: 'Verfügbare Apartments',
-  description: 'Finden Sie verfügbare, vollständig möblierte Mietapartments in Düsseldorf und Umgebung.',
+  title: 'Verfügbare Wohnungen',
+  description: 'Finden Sie verfügbare, vollständig möblierte Mietwohnungen in Düsseldorf und Umgebung.',
 }
 
 interface ApartmentsPageProps {

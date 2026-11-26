@@ -9,8 +9,8 @@ import { Toaster } from '@/components/ui/sonner'
 import { ShellWrapper } from '@/components/shared/shell-wrapper'
 
 export const metadata: Metadata = {
-  title: { default:'Möblierte Apartments in Düsseldorf | 0211wohnen', template:'%s | 0211wohnen' },
-  description: 'Verfügbare möblierte Mietapartments und persönlicher Vermieterservice in Düsseldorf und Umgebung.',
+  title: { default:'Möblierte Wohnungen in Düsseldorf | 0211wohnen', template:'%s | 0211wohnen' },
+  description: 'Verfügbare möblierte Mietwohnungen und persönlicher Vermieterservice in Düsseldorf und Umgebung.',
   icons: {
     icon: [{ url: '/Fab%20icon.svg', type: 'image/svg+xml' }],
   },
