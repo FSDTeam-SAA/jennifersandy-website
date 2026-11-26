@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `${apt.size} m² • ${apt.rooms} Zimmer • ${apt.district} • ${formatApartmentPrice(apt)} • ${apt.priceLabel}`,
     }
   } catch {
-    return { title: 'Apartment Not Found | 0211wohnen' }
+    return { title: 'Wohnung nicht gefunden' }
   }
 }
 
