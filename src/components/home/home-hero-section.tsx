@@ -35,9 +35,9 @@ export function HomeHeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent" />
         <div className="relative z-10 flex min-h-[520px] max-w-3xl flex-col justify-center px-6 py-16 text-white sm:min-h-[600px] sm:px-12 lg:px-16">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/85">0211wohnen · Düsseldorf</p>
-          <h1 id="home-title" className="text-4xl font-bold leading-tight text-white sm:text-6xl">Möblierte Apartments.<br />Einfach ankommen.</h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-white/90 sm:text-lg">Entdecken Sie aktuell verfügbare möblierte Mietapartments in Düsseldorf und Umgebung.</p>
-          <Link href="/apartments" className="brand-button mt-8 w-fit">Apartments ansehen</Link>
+          <h1 id="home-title" className="text-4xl font-bold leading-tight text-white sm:text-6xl">Möblierte Wohnungen.<br />Einfach ankommen.</h1>
+          <p className="mt-6 max-w-xl text-base leading-7 text-white/90 sm:text-lg">Entdecken Sie aktuell verfügbare möblierte Mietwohnungen in Düsseldorf und Umgebung.</p>
+          <Link href="/apartments" className="brand-button mt-8 w-fit">Wohnungen ansehen</Link>
         </div>
         {slides.length > 1 && <div className="absolute bottom-5 right-5 z-20 flex gap-2" aria-label="Slideshow"><span className="rounded-full bg-black/55 px-3 py-1 text-xs text-white">{active + 1} / {slides.length}</span></div>}
       </div>
